@@ -5,9 +5,9 @@ function handleFocus(input) {
 }
 
 function handleInput(input) {
-    if (input.value.trim() === '') {
+    /*if (input.value.trim() === '') {
         input.value = '0'; // Якщо поле порожнє після введення, заповнюємо його 0
-    }
+    }*/
 }
 let Results = [];
 var failtxt1 = document.querySelector('.failText1');
