@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Enter your matrix</h1>
+    <form>
+        <div class="equation">
+            <input type="number" name="x12" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>2</sub> +
+            <input type="number" name="x13" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>3</sub> +
+            <input type="number" name="x14" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>4</sub> =
+            <input type="number" name="x11" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>1</sub> +
+            <input type="number" name="result1" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">
+        </div>
+        <div class="equation">
+            <input type="number" name="x21" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>1</sub> +
+            <input type="number" name="x22" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>2</sub> +
+            <input type="number" name="x23" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>3</sub> +
+            <input type="number" name="x24" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>4</sub> =
+            <input type="number" name="result2" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">
+        </div>
+        <div class="equation">
+            <input type="number" name="x31" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>1</sub> +
+            <input type="number" name="x32" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>2</sub> +
+            <input type="number" name="x33" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>3</sub> +
+            <input type="number" name="x34" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>4</sub> =
+            <input type="number" name="result3" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">
+        </div>
+        <div class="equation">
+            <input type="number" name="x41" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>1</sub> +
+            <input type="number" name="x42" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>2</sub> +
+            <input type="number" name="x43" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>3</sub> +
+            <input type="number" name="x44" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">* x<sub>4</sub> =
+            <input type="number" name="result4" step="any" value="0" onfocus="handleFocus(this)" oninput="handleInput(this)">
+        </div>
+    </form>
+    <form>
+        Epsilon = <input type="number" name="eps" step="any" id="eps" value="0.01">
+    </form>
+    <div class="buttons">
+        <button class="default-button">Default</button>
+        <button class="fillzero-button">Fill with 0</button>
+        <button class="submit-button">Submit</button>
+    </div>
+   
+
+    <div class="tempContainer">
+        <div class="convergence"></div>
+        <div class="alfa-beta"></div>
+        <div class="resultsContainer">
+            <div class="jak">
+            </div>
+            <div class="zel">
+            </div>
+        </div>
+    </div>
+    <div class="fail">
+        <h1 class="failText1">Invalid matrix!!!</h1>
+        <h1 class="failText2">Diagonal elements = 0</h1>
+        <h1 class="failText3">Epsilon dont equal 0 and less</h1>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

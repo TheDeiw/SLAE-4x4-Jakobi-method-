@@ -1,0 +1,156 @@
+/* *{padding: 0;
+margin: 0;
+} */
+
+body {
+    background: linear-gradient(to right, #46932d, #64d775);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+form {
+    margin: auto;
+    text-align: center;
+}
+
+#eps{
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.equation {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+input[type="number"] {
+    width: 70px;
+    height: 30px;
+    margin: 0 10px;
+    text-align: center;
+    border: none;
+    font-size: 17px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.buttons{
+    margin: auto;
+    width: 50%;
+    display: flex;
+}
+
+.submit-button {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2a9837;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 1s;
+}
+
+.default-button {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f6a0e;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 1s;
+}
+
+.fillzero-button {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f6a0e;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 1s;
+}
+
+.submit-button:hover{
+    background-color: #99e990;
+    transition: 1s;
+}
+
+.fillzero-button:hover{
+    background-color: #99e990;
+    transition: 1s;
+}
+
+.default-button:hover{
+    background-color: #99e990;
+    transition: 1s;
+}
+
+.tempContainer{
+    margin-top: 50px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.convergence{
+    margin-bottom: 50px;
+}
+.resultsContainer{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: flex;
+}
+
+.jak{
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.zel{
+    width: 50%;
+    text-align: center;
+}
+
+.failText1{
+    display: none;
+    color: #f10f0f;
+    font-size: 60px;
+}
+
+.failText2{
+    display: none;
+    color: #f10f0f;
+    font-size: 60px;
+}
+.failText3{
+    display: none;
+    color: #f10f0f;
+    font-size: 60px;
+}
+
+.fail{
+    color: #f10f0f;
+    font-size: 80px;
+}
