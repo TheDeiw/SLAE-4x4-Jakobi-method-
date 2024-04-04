@@ -5,9 +5,9 @@ function handleFocus(input) {
 }
 
 function handleInput(input) {
-    /*if (input.value.trim() === '') {
+/*     if (input.value.trim() === '') {
         input.value = '0'; // Якщо поле порожнє після введення, заповнюємо його 0
-    }*/
+    } */
 }
 let Results = [];
 var failtxt1 = document.querySelector('.failText1');
@@ -87,7 +87,8 @@ function MainFunction(){
         const AlfaMatrix = CreateAlfa(matrix)
         const BetaMatrix = CreateBeta(matrix)
     
-        if(IfConvergence(matrix)){
+        //if(IfConvergence(AlfaMatrix)){
+            IfConvergence(AlfaMatrix);
             DisplayText("Alfa/Beta Matrixes", "alfa-beta", '25px' , 'h1')
             DisplayText("Alfa Matrix", "alfa-beta", '' , 'p')
             DispalyMatrix2D(AlfaMatrix, "alfa-beta")
@@ -96,7 +97,7 @@ function MainFunction(){
         
             Jakobi(matrix, Eps, AlfaMatrix, BetaMatrix);
             Zeydel(matrix, Eps, AlfaMatrix, BetaMatrix);
-        }
+        //}
     } 
 }
 
@@ -245,7 +246,7 @@ function СlearContent() {
             }
         });
     }
-}в
+}
 
 /* -------------------- CHECK CONVERGENCE -------------------- */
 function IfConvergence(alfa){
@@ -255,8 +256,8 @@ function IfConvergence(alfa){
     for(let i=0; i<alfa.length; i++){
         let tempSum = 0;
         for(let j=0; j<alfa.length; j++){
-            tempSum += alfa[i][j]
-            console.log(sum1);
+            tempSum += Math.abs(alfa[i][j])
+            //console.log(sum1);
         }
         if (tempSum > sum1){
             sum1 = tempSum;
@@ -266,7 +267,7 @@ function IfConvergence(alfa){
     for(let i=0; i<alfa.length; i++){
         let tempSum = 0;
         for(let j=0; j<alfa.length; j++){
-            tempSum += alfa[j][i];
+            tempSum += Math.abs(alfa[j][i])
             console.log(sum1);
         }
         if (tempSum > sum2){
@@ -275,14 +276,18 @@ function IfConvergence(alfa){
     }
 
     for(let i=0; i<alfa.length; i++){
-        sum3 += alfa[i][i];
+        for(let j=0; j<alfa.length; j++){
+            sum3 += Math.pow(alfa[i][j],2);
+            //sum3 += alfa[i][i];
+            //console.log(alfa[i][i]);
+        }
     }
 
-    DisplayText(`Row checking: Max = ${sum1.toFixed(3)}`, "convergence", '15px', 'p');
-    DisplayText(`Column checking: Max = ${sum2.toFixed(3)}`, "convergence", '15px', 'p');
-    DisplayText(`Sqr checking: Diag = ${sum3.toFixed(3)}`, "convergence", '15px', 'p');
+    DisplayText(`Row checking: MaxSum = ${sum1.toFixed(3)}`, "convergence", '15px', 'p');
+    DisplayText(`Column checking: MaxSum = ${sum2.toFixed(3)}`, "convergence", '15px', 'p');
+    DisplayText(`Sqr checking: Sum = ${sum3.toFixed(3)}`, "convergence", '15px', 'p');
 
-    if (sum1 < 1 || sum2 < 1 || sum3>sum2 || sum3>sum1){
+    if (sum1 < 1 || sum2 < 1 || sum3 < 1){
         DisplayText(`Is convergence`, "convergence", '20px', 'h1');
         return true;
     } else {
@@ -316,16 +321,16 @@ function CreateBeta(array){
 
 function Jakobi(array, eps, alfaMatrix, betaMatrix){
 
-    let count = 0;
+    let count = 1;
     // Перша ітерація
     for (let i=0; i<betaMatrix.length; i++){
         Results = [...betaMatrix];
-        count++;
     }
-    
+    console.log("--------Jakobi--------");
     let tempRes = [], MaxDiff=100;
     // Наступні ітерації
     while (MaxDiff > eps){
+        console.log(`Count = ${count}, ${Results[0].toFixed(3)}, ${Results[1].toFixed(3)}, ${Results[2].toFixed(3)}`);
         tempRes = [...Results];
         for (let i = 0; i<Results.length; i++){
             let sum = 0
@@ -342,6 +347,7 @@ function Jakobi(array, eps, alfaMatrix, betaMatrix){
             }
         }
         count++;
+        
     }
     DisplayText("Jakobi method", "jak", '30px', 'h1');
     DisplayText("Results:", "jak", '18px', 'p');
@@ -351,18 +357,17 @@ function Jakobi(array, eps, alfaMatrix, betaMatrix){
 
 function Zeydel(array, eps, alfaMatrix, betaMatrix){
 
-    let count = 0;
+    let count = 1;
     // Перша ітерація
     for (let i=0; i<betaMatrix.length; i++){
         Results = [...betaMatrix];
-        count++;
     }
-    
+    console.log("--------Seidel--------");
     let tempRes = [], MaxDiff=100;
     // Наступні ітерації
     while (MaxDiff > eps){
         tempRes = [...Results];
-
+        console.log(`Count = ${count}, ${Results[0].toFixed(3)}, ${Results[1].toFixed(3)}, ${Results[2].toFixed(3)}`);
         for (let i = 0; i<Results.length; i++){
             let sum = 0;
             for (let j = 0; j<i; j++){
